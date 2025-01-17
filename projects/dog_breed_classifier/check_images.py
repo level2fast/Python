@@ -29,12 +29,24 @@ from time import time, sleep
 from print_functions_for_lab_checks import *
 
 # Imports functions created for this program
-from get_input_args import get_input_args
+from util.get_input_args import get_input_args
 from get_pet_labels import get_pet_labels
 from classify_images import classify_images
 from adjust_results4_isadog import adjust_results4_isadog
 from calculates_results_stats import calculates_results_stats
 from print_results import print_results
+
+def check_creating_pet_image_labels(results):
+    # Print 10 of the filenames from folder pet_images/
+    print("\nPrints 10 filenames from folder pet_images/")
+    for idx in range(0, 10, 1):
+        print("{:2d} file: {:>25}".format(idx + 1, results[idx]) )
+
+def check_command_line_arguments(in_arg):
+    pass
+
+def check_classifying_images(results):
+    pass
 
 # Main program function defined below
 def main():
@@ -49,7 +61,7 @@ def main():
     in_arg = get_input_args()
 
     # Function that checks command line arguments using in_arg  
-    # check_command_line_arguments(in_arg)
+    check_command_line_arguments(in_arg)
 
     
     # Define get_pet_labels function within the file get_pet_labels.py
@@ -65,7 +77,7 @@ def main():
     check_creating_pet_image_labels(results)
 
 
-    # TODO 3: Define classify_images function within the file classiy_images.py
+    # Define classify_images function within the file classiy_images.py
     # Once the classify_images function has been defined replace first 'None' 
     # in the function call with in_arg.dir and replace the last 'None' in the
     # function call with in_arg.arch  Once you have done the replacements your
@@ -73,7 +85,7 @@ def main():
     #             classify_images(in_arg.dir, results, in_arg.arch)
     # Creates Classifier Labels with classifier function, Compares Labels, 
     # and adds these results to the results dictionary - results
-    classify_images(None, results, None)
+    classify_images(in_arg.dir, results, in_arg.arch)
 
     # Function that checks Results Dictionary using results    
     check_classifying_images(results)    
@@ -123,11 +135,6 @@ def main():
           str(int((tot_time/3600)))+":"+str(int((tot_time%3600)/60))+":"
           +str(int((tot_time%3600)%60)) )
     
-def check_creating_pet_image_labels(results):
-    # Print 10 of the filenames from folder pet_images/
-    print("\nPrints 10 filenames from folder pet_images/")
-    for idx in range(0, 10, 1):
-        print("{:2d} file: {:>25}".format(idx + 1, results[idx]) )
 
 # Call to main function to run the program
 if __name__ == "__main__":

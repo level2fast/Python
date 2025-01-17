@@ -14,6 +14,7 @@
 # Imports python modules
 from os import listdir
 import re
+import string
 def get_pet_labels(image_dir):
     """
     Creates a dictionary of pet labels (results_dic) based upon the filenames 
@@ -56,7 +57,7 @@ def get_pet_labels(image_dir):
            if(re.match("^\d+",pet_label[1])):
               pass
            else:
-               pet_label = pet_label[0] + " " + pet_label[1]
+               pet_label = string.strip(string.lower(pet_label[0] + " " + pet_label[1]))
 
            # If filename doesn't already exist in dictionary add it and it's
            # pet label - otherwise print an error message because indicates 

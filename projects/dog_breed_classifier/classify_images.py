@@ -2,13 +2,10 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/classify_images_hints.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:                                 
-# REVISED DATE: 
-# PURPOSE: This is a *hints* file to help guide students in creating the 
-#          function classify_images that uses the classifier function 
-#          to create the classifier labels and then compares the classifier 
-#          labels to the pet image labels. This function inputs:
+# PROGRAMMER: Steven Daniels
+# PURPOSE: Uses the classifier function to create the classifier labels and then 
+#          compares the classifier labels to the pet image labels. 
+#          This function inputs:
 #            -The Image Folder as image_dir within classify_images and function 
 #             and as in_arg.dir for function call within main. 
 #            -The results dictionary as results_dic within classify_images 
@@ -31,7 +28,7 @@ from classifier import classifier
 #       results_dic dictionary that is passed into the function is a mutable 
 #       data type so no return is needed.
 # 
-def classify_images(images_dir, results_dic, model):
+def classify_images(images_dir: str, results_dic:dict, model: str):
     """
     Creates classifier labels with classifier function, compares pet labels to 
     the classifier labels, and adds the classifier label and the comparison of 
